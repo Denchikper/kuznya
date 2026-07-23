@@ -57,6 +57,33 @@ jobs:
           releaseName: ${{ startsWith(github.ref, 'refs/tags/v') && format('Кузня {0}', github.ref_name) || '' }}
           releaseDraft: true
 
+      # Кириллица из productName выпадает из имён файлов при загрузке
+      # в релиз («_2.0.0_universal.dmg») — даём ассетам понятные имена.
+      # Обновляемый .app.tar.gz не раздаём — удаляем из релиза.
+      - name: Понятные имена файлов релиза
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          ver="${TAG#v}"
+          rel=$(gh api "repos/$GITHUB_REPOSITORY/releases" \
+            --jq ".[] | select(.tag_name==\"$TAG\") | .id" | head -1)
+          gh api "repos/$GITHUB_REPOSITORY/releases/$rel/assets" --paginate \
+            --jq '.[] | [.id, .name] | @tsv' |
+          while IFS=$'\t' read -r id name; do
+            case "$name" in
+              *.tar.gz*) gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$id"; continue ;;
+              *.dmg) new="Kuznya_${ver}_macOS_universal.dmg" ;;
+              *-setup.exe) new="Kuznya_${ver}_Windows_x64-setup.exe" ;;
+              *.msi) new="Kuznya_${ver}_Windows_x64.msi" ;;
+              *) continue ;;
+            esac
+            [ "$name" = "$new" ] || gh api -X PATCH \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$id" -f name="$new"
+          done
+
       # Собираем установщики в плоскую папку, чтобы в артефакте
       # были сразу готовые файлы, а не дерево каталогов target/
       - name: Подготовка артефактов
