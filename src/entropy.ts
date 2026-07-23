@@ -1,5 +1,5 @@
 // Кузня — генератор паролей
-// by Benovich · https://github.com/Denchikper/password_generator
+// by Benovich · https://github.com/Denchikper/kuznya
 
 import type { GenerateOptions, HeatLevel } from "./types";
 import { buildAlphabet } from "./api";

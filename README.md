@@ -7,7 +7,7 @@
 **Настольный генератор паролей** — пароль выковывается из символов криптостойким RNG.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![build](https://github.com/Denchikper/password_generator/actions/workflows/build.yml/badge.svg)](https://github.com/Denchikper/password_generator/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/Denchikper/kuznya?label=release&color=FF7A29)](https://github.com/Denchikper/kuznya/releases)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-2ea44f)
 ![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB?logo=tauri&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
@@ -70,7 +70,7 @@
 
 ## Установка
 
-Готовые сборки — на странице [релизов](https://github.com/Denchikper/password_generator/releases):
+Готовые сборки — на странице [релизов](https://github.com/Denchikper/kuznya/releases):
 `.dmg` для macOS (universal — Intel и Apple Silicon) и `.exe`/`.msi` для Windows.
 
 ### Первый запуск
@@ -87,8 +87,8 @@
 с [пререквизитами Tauri](https://v2.tauri.app/start/prerequisites/).
 
 ```bash
-git clone https://github.com/Denchikper/password_generator.git
-cd password_generator
+git clone https://github.com/Denchikper/kuznya.git
+cd kuznya
 npm install
 npm run tauri build
 ```

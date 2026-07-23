@@ -7,9 +7,9 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Denchikper/password_generator.git"
+    "url": "https://github.com/Denchikper/kuznya.git"
   },
-  "homepage": "https://github.com/Denchikper/password_generator",
+  "homepage": "https://github.com/Denchikper/kuznya",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

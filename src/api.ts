@@ -1,5 +1,5 @@
 // Кузня — генератор паролей
-// by Benovich · https://github.com/Denchikper/password_generator
+// by Benovich · https://github.com/Denchikper/kuznya
 
 import { invoke } from "@tauri-apps/api/core";
 import { writeText } from "@tauri-apps/plugin-clipboard-manager";
