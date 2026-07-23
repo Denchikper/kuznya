@@ -1,5 +1,5 @@
 // Кузня — генератор паролей
-// by Benovich · https://github.com/Denchikper/password_generator
+// by Benovich · https://github.com/Denchikper/kuznya
 
 import { entropyBits, heatFraction, heatLevel, HEAT_LABELS } from "../entropy";
 import type { GenerateOptions } from "../types";
