@@ -73,6 +73,14 @@
 Готовые сборки — на странице [релизов](https://github.com/Denchikper/password_generator/releases):
 `.dmg` для macOS (universal — Intel и Apple Silicon) и `.exe`/`.msi` для Windows.
 
+### Первый запуск
+
+Сборки не подписаны сертификатами, поэтому системы один раз предупредят:
+
+- **macOS:** Системные настройки → Конфиденциальность и безопасность →
+  **«Открыть всё равно»** (или `xattr -cr /Applications/Кузня.app`).
+- **Windows:** SmartScreen → **Подробнее** → **Выполнить в любом случае**.
+
 ## Сборка из исходников
 
 Нужны [Node.js](https://nodejs.org/) 18+ и [Rust](https://rustup.rs/) (stable)
@@ -104,6 +112,9 @@ npm run dev          # http://localhost:1420
 ```bash
 cd src-tauri && cargo test
 ```
+
+Подробнее — структура проекта, процесс релиза, обновление иконки, подпись
+сборок — в [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
 
 ## Лицензия
 
