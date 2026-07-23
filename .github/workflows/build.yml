@@ -3,6 +3,10 @@
 
 name: build
 
+# Право на запись нужно tauri-action, чтобы создавать релиз по тегу
+permissions:
+  contents: write
+
 on:
   push:
     branches: [main]
